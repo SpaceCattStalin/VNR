@@ -76,7 +76,7 @@ export default function App() {
             cupColor={CUP_COLORS_PRESET[cupColorIndex].value}
           />
           <OrbitControls
-            target={[0, 0, 0]}
+            target={[0, 0, -4]}
             enableDamping
           />
         </Canvas>
