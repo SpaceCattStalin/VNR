@@ -15,7 +15,7 @@ export const CONTENT_ITEMS = [
           Diễn ra từ ngày 15 đến 18/12/1986 ở Hà Nội tại Hội trường Ba Đình.
         </p>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/a/a8/The_Ba_Dinh_meeting-hall.jpg"
+          src="https://bvhttdl.mediacdn.vn/documents/20195/682302/ones.jpg"
           className="contentImage"
           alt=""
         />
