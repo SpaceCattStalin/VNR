@@ -17,7 +17,7 @@ export default function Smoke() {
   const geometry = useMemo(() => {
     const geo = new THREE.PlaneGeometry(1, 1, 16, 64);
     geo.translate(0, 0.5, 0);
-    geo.scale(1.5, 6, 1.5);
+    geo.scale(3, 6, 2);
     return geo;
   }, []);
 
@@ -47,7 +47,7 @@ export default function Smoke() {
       ref={meshRef}
       geometry={geometry}
       material={material}
-      position={[0, 2.5, 0]}
+      position={[0, 2, 0]}
     />
   );
 }
