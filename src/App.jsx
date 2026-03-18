@@ -36,6 +36,7 @@ export default function App() {
   const [current, setCurrent] = useState(0);
   const [bgColor, setBgColor] = useState(0);
   const [cupColorIndex, setCupColorIndex] = useState(0);
+  const [showHelp, setShowHelp] = useState(false);
 
   useEffect(() => {
     if (current >= 0 && current <= 2) {
@@ -54,13 +55,21 @@ export default function App() {
   }, [current]);
 
   const totalSlides = Math.max(MODELS.length, CONTENT_ITEMS.length);
-  const contentIndex = Math.min(current, CONTENT_ITEMS.length);
+  const contentIndex = Math.min(current, CONTENT_ITEMS.length - 1);
   const contentItem = CONTENT_ITEMS[contentIndex];
   const modelIndex = current % MODELS.length;
 
   return (
     <div className="app-layout">
       <div className="canvas-column">
+        <button
+          type="button"
+          className="helpBtn"
+          onClick={() => setShowHelp(true)}
+          aria-label="Help"
+        >
+          ?
+        </button>
         <Canvas
           gl={{
             antialias: true,
@@ -69,7 +78,7 @@ export default function App() {
             toneMappingExposure: 1.2,
             outputColorSpace: THREE.SRGBColorSpace,
           }}
-          camera={{ position: [0, 3, 10], fov: 25, near: 0.1, far: 100 }}
+          camera={{ position: [0, 0, 20], fov: 25, near: 0.1, far: 100 }}
           onCreated={({ gl }) => gl.setClearColor(0x000000, 0)}
         >
           <Scene
@@ -121,6 +130,40 @@ export default function App() {
           ))}
         </div>
       </div>
+
+      {showHelp && (
+        <div
+          className="helpOverlay"
+          onClick={() => setShowHelp(false)}
+          onKeyDown={(e) => e.key === 'Escape' && setShowHelp(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="help-modal-title"
+        >
+          <div
+            className="helpModal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 id="help-modal-title" className="helpModalTitle" style={{ margin: 0, fontSize: '1.125rem', color: '#1a1a1a' }}>
+              Hướng dẫn
+            </h2>
+            <ul className="helpModalBullets" style={{ margin: 0, paddingLeft: '1.25rem', color: '#1a1a1a', lineHeight: 1.6 }}>
+              <li>Dùng chuột trái và phải để thay đổi góc nhìn. Chuột giữa để zoom.</li>
+            </ul>
+            <div className="helpModalImages">
+              <img src="/guide.png" alt="Hướng dẫn sử dụng: di chuyển giữa các hình bằng mũi tên trái/phải hoặc các chấm bên dưới." />
+            </div>
+            <button
+              type="button"
+              className="button-50 helpModalConfirm"
+              onClick={() => setShowHelp(false)}
+            >
+              Đã hiểu
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="content">
         {contentItem && (
           <>
