@@ -78,7 +78,7 @@ export default function App() {
             toneMappingExposure: 1.2,
             outputColorSpace: THREE.SRGBColorSpace,
           }}
-          camera={{ position: [0, 0, 20], fov: 25, near: 0.1, far: 100 }}
+          camera={{ position: [0, 0, 30], fov: 25, near: 0.1, far: 100 }}
           onCreated={({ gl }) => gl.setClearColor(0x000000, 0)}
         >
           <Scene
