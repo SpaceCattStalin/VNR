@@ -274,4 +274,29 @@ export const CONTENT_ITEMS = [
       </p>,
     ],
   },
+  {
+    id: 10,
+    title: 'Tổng kết: Thành tựu và Bước ngoặt sau 5 năm (1986-1991)',
+    imageUrl: null,
+    points: [
+      <p>
+        Việt Nam thực hiện cuộc &quot;lột xác&quot; ngoạn mục, tự &quot;cởi
+        trói&quot; thành công khỏi nền kinh tế bao cấp và thế bị cô lập.
+      </p>,
+      <p>
+        <strong>Chính trị & Đối ngoại:</strong> Giữ vững ổn định, quốc phòng -
+        an ninh; phá thế bị bao vây và xác lập vị thế mới trên trường quốc tế.
+      </p>,
+      <p>
+        <strong>Kinh tế & Xã hội:</strong> Hình thành nền kinh tế hàng hóa nhiều
+        thành phần, kiềm chế lạm phát phi mã và cải thiện rõ rệt đời sống nhân
+        dân.
+      </p>,
+      <p>
+        <strong>Dân chủ & Phát triển:</strong> Quyền làm chủ của nhân dân được
+        phát huy, tạo nền móng vững chắc cho công nghiệp hóa - hiện đại hóa đất
+        nước.
+      </p>,
+    ],
+  },
 ];

@@ -47,14 +47,16 @@ export default function App() {
     } else if (current >= 5 && current <= 7) {
       setBgColor(2);
       setCupColorIndex(0);
-    } else if (current >= 8 && current <= 9) {
+    } else if (current >= 8 && current <= 10) {
       setBgColor(3);
       setCupColorIndex(1);
     }
   }, [current]);
 
-  const contentIndex = current % CONTENT_ITEMS.length;
+  const totalSlides = Math.max(MODELS.length, CONTENT_ITEMS.length);
+  const contentIndex = Math.min(current, CONTENT_ITEMS.length);
   const contentItem = CONTENT_ITEMS[contentIndex];
+  const modelIndex = current % MODELS.length;
 
   return (
     <div className="app-layout">
@@ -71,7 +73,7 @@ export default function App() {
           onCreated={({ gl }) => gl.setClearColor(0x000000, 0)}
         >
           <Scene
-            current={MODELS[current]}
+            current={MODELS[modelIndex]}
             backgroundColor={BACKGROUND_COLORS_PRESET[bgColor].value}
             cupColor={CUP_COLORS_PRESET[cupColorIndex].value}
           />
@@ -84,7 +86,7 @@ export default function App() {
           type="button"
           className="leftBtn"
           onClick={() =>
-            setCurrent((c) => (c === 0 ? MODELS.length - 1 : c - 1))
+            setCurrent((c) => (c === 0 ? totalSlides - 1 : c - 1))
           }
           aria-label="Previous"
         >
@@ -97,7 +99,7 @@ export default function App() {
           type="button"
           className="rightBtn"
           onClick={() =>
-            setCurrent((c) => (c === MODELS.length - 1 ? 0 : c + 1))
+            setCurrent((c) => (c === totalSlides - 1 ? 0 : c + 1))
           }
           aria-label="Next"
         >
@@ -107,13 +109,13 @@ export default function App() {
           />
         </button>
         <div className="btnWrapper">
-          {MODELS.map((_, index) => (
+          {Array.from({ length: totalSlides }, (_, index) => (
             <button
               type="button"
               className={`idexBtn ${index === current ? 'idexBtn--active' : ''}`}
               key={index}
               onClick={() => setCurrent(index)}
-              aria-label={`Go to model ${index + 1}`}
+              aria-label={`Go to slide ${index + 1}`}
               aria-current={index === current ? 'true' : undefined}
             />
           ))}

@@ -30,7 +30,6 @@ export const BACKGROUND_COLORS = [
   { id: 'soft-burgundy', name: 'Soft Burgundy', value: 0x2d2224 },
 ];
 
-/** Best 4 backgrounds for the cup viewer: all dark, no white. Ready for 4 cup material sets per background later. */
 export const BACKGROUND_COLORS_PRESET = [
   { id: 'charcoal', name: 'Charcoal', value: 0x1a1a1a },
   { id: 'warm-dark', name: 'Warm Dark', value: 0x2c2419 },
