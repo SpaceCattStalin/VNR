@@ -57,7 +57,7 @@ export const CONTENT_ITEMS = [
       'https://upload.wikimedia.org/wikipedia/vi/4/45/Nguy%E1%BB%85n_V%C4%83n_Linh.jpg',
     imageCaption: 'Tổng Bí thư Nguyễn Văn Linh (1915–1998).',
     points: [
-      <p>Tên khai sinh là Nguyễn Văn Linh, sinh năm 1915-1998.</p>,
+      <p>Tên khai sinh là Nguyễn Văn Cúc, sinh năm 1915-1998.</p>,
       <p>Ông đóng vai trò quan trọng trong công cuộc tái thiết đất nước.</p>,
       <p>
         Nổi tiếng với phương châm <strong>"Nói và Làm"</strong>.
